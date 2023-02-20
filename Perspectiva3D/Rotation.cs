@@ -63,7 +63,6 @@ namespace Demo3D
 
             MatZ = new Mtx(axis);
             return MatZ.Mul(p);
-
         }
     }
 }
