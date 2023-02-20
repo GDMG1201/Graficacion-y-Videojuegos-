@@ -1,4 +1,4 @@
-﻿namespace Demo3D
+namespace Demo3D
 {
     public class Mtx
     {
@@ -17,9 +17,12 @@
 
             for (int i = 0; i < mat.GetLength(0); i++)
             {
-                x += mat[i, 0] * vector[0];
-                y += mat[i, 1] * vector[1];
-                z += mat[i, 2] * vector[2];
+                for (int j = 0; j < mat.GetLength(0); j++)
+                {
+                    x += mat[i, 0] * vector[0];
+                    y += mat[i, 1] * vector[1];
+                    z += mat[i, 2] * vector[2];    
+                }
             }
 
             return new Vertex(new float[]
@@ -29,4 +32,3 @@
 
         }
     }
-}
