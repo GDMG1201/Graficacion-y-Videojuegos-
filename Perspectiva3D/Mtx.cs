@@ -15,15 +15,10 @@ namespace Demo3D
             float y = vector.y;
             float z = vector.z;
 
-            for (int i = 0; i < mat.GetLength(0); i++)
-            {
-                for (int j = 0; j < mat.GetLength(0); j++)
-                {
-                    x += mat[i, 0] * vector[0];
-                    y += mat[i, 1] * vector[1];
-                    z += mat[i, 2] * vector[2];    
-                }
-            }
+            x = (mat[0, 0] * vector[0]) + (mat[1, 0] * vector[1]) + (mat[2,0] * vector[2]);
+            y = (mat[0, 1] * vector[0]) + (mat[1, 1] * vector[1]) + (mat[2, 1] * vector[2]);
+            z = (mat[0, 2] * vector[0]) + (mat[1, 2] * vector[1]) + (mat[2, 2] * vector[2]);
+
 
             return new Vertex(new float[]
             {
@@ -32,3 +27,4 @@ namespace Demo3D
 
         }
     }
+}
