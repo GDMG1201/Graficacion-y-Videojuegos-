@@ -10,6 +10,7 @@ namespace Demo3D
         Rotation rot = new Rotation();
         Vertex a, b, c, d, f, h, i, j;
         Projection proj;
+        Figura cubo;
 
         public Form1()
         {
@@ -66,6 +67,8 @@ namespace Demo3D
             h = new Vertex(new float[] { 1, -1, 1 });
             i = new Vertex(new float[] { 1, 1, 1 });
             j = new Vertex(new float[] { -1, 1, 1 });
+
+            cubo = new Figura(a, b, c, d, f, h, i, j);
 
             a = TransformPoint(angle, a);
             b = TransformPoint(angle, b);
