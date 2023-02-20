@@ -56,6 +56,5 @@ namespace Demo3D
             Mat = new Mtx(mat);
             return Mat.Mul(v);
         }
-
     }
 }
