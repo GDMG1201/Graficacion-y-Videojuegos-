@@ -153,7 +153,9 @@ namespace Demo3D
 
         private Vertex TransformPoint(float angle, Vertex a)
         {
+            a = rot.Rotx(angle, a);
             a = rot.Roty(angle, a);
+            a = rot.Rotz(angle, a);
             return a;
         }
     }
