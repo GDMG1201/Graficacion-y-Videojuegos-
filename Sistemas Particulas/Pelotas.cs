@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
 using Image = System.Drawing.Image;
+
 
 namespace Pelotas
 {
@@ -22,10 +23,13 @@ namespace Pelotas
         Emitter emitter;
         //Image image = Image.FromFile("C:/Users/garci/Downloads/burbuja.png");
         Image image = Resource1.Burbuja;
+        int transparencia = 50;
+
 
         public Pelotas()
         {
             InitializeComponent();
+            
         }
 
         private void Init()
@@ -58,6 +62,8 @@ namespace Pelotas
         {
             g.Clear(Color.Transparent);
 
+            
+
             Parallel.For(0, balls.Count, b =>//ACTUALIZAMOS EN PARALELO
             {
                 Pelota P;
@@ -66,11 +72,33 @@ namespace Pelotas
             });
 
             Pelota p;
-            for (int b = 0; b < balls.Count; b++)//PINTAMOS EN SECUENCIA
+
+            for (int b = 0; b < balls.Count; b++)
             {
+                //p = balls[b];
+
                 p = balls[b];
+
+                // ----  codigo para variar transparencia a las burbujas// --------
+
+                /*Bitmap bitmap = new Bitmap(image);
+                for (int x = 0; x < bitmap.Width; x++)
+                {
+                    for (int y = 0; y < bitmap.Height; y++)
+                    {
+                        Color pixel = bitmap.GetPixel(x, y);
+                        Color nuevoColor = Color.FromArgb(transparencia, pixel.R, pixel.G, pixel.B);
+                        bitmap.SetPixel(x, y, nuevoColor);
+                    }
+                }*/
+                //g.DrawImage(bitmap, new Rectangle((int)(p.x - p.radio), (int)(p.y - p.radio), (int)(p.radio * 2), (int)(p.radio * 2)));
+
+                // ----  codigo para dibujar a las burbujas sin transparencia// --------
+
                 g.DrawImage(image, new Rectangle((int)(p.x - p.radio), (int)(p.y - p.radio), (int)(p.radio * 2), (int)(p.radio * 2)));
             }
+
+        
 
             emitter = new Emitter(620, 425);
             emitter.DrawPalita(g);
