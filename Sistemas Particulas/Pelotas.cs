@@ -96,6 +96,10 @@ namespace Pelotas
                 // ----  codigo para dibujar a las burbujas sin transparencia// --------
 
                 g.DrawImage(image, new Rectangle((int)(p.x - p.radio), (int)(p.y - p.radio), (int)(p.radio * 2), (int)(p.radio * 2)));
+
+                // ----  codigo para pintar pelotas de colores // --------
+
+                //g.FillEllipse(new SolidBrush(p.c), p.x - p.radio, p.y - p.radio, p.radio * 2, p.radio * 2);
             }
 
         
